@@ -43,7 +43,7 @@ public class HomeController {
     @RequestMapping("/update/{id}")
     public String updatetodolist(@PathVariable("id")long id, Model model){
       model.addAttribute("todo",todorepository.findById(id).get());
-      return "courseform";
+      return "todoform";
     }
     @RequestMapping("/delete/{id}")
     public String deltodolist(@PathVariable("id") long id){
