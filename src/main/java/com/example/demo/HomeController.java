@@ -36,9 +36,19 @@ public class HomeController {
         return "redirect:/";
     }
     @RequestMapping("/detail/{id}")
-    public String showTodoList(@PathVariable("id") Long id, Model model){
+    public String showTodoList(@PathVariable("id") long id, Model model){
         model.addAttribute("todo", todorepository.findById(id).get());
         return "show";
+    }
+    @RequestMapping("/update/{id}")
+    public String updatetodolist(@PathVariable("id")long id, Model model){
+      model.addAttribute("todo",todorepository.findById(id).get());
+      return "courseform";
+    }
+    @RequestMapping("/delete/{id}")
+    public String deltodolist(@PathVariable("id") long id){
+        todorepository.deleteById(id);
+        return "redirect:/";
     }
 
 
